@@ -19,39 +19,7 @@ app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'))
 });
 
-// const pushNote = (newNote, notes) => {
-//   notes.push(newNote);
-//   return notes;
-// };
 
-// app.post('/api/notes', (req, res) => {
-//     const newNote = req.body;
-//     fs.readFile(path.join(__dirname, '/db/db.json'), 'utf-8', (err, data) => {
-//         if(err) throw err; 
-//         const notes = JSON.parse(data);
-//         notes.push(newNote);
-//         fs.writeFile(path.join(__dirname, '/db/db.json'), JSON.stringify(notes), (err, data) => {
-//             if(err) throw err;
-//             res.json(notes);
-//         });
-//     });
-// });
-
-// app.post('/api/notes', (req, res) => {
-//     const newNote = req.body;
-//     fs.readFile(path.join(__dirname, '/db/db.json'), 'utf-8', (err, data) => {
-//         if(err) throw err; 
-//         let notes = JSON.parse(data);
-//         if (!Array.isArray(notes)) { // check if notes is an array
-//             notes = []; // if not, initialize it with an empty array
-//         }
-//         notes.push(newNote);
-//         fs.writeFile(path.join(__dirname, '/db/db.json'), JSON.stringify(notes), (err, data) => {
-//             if(err) throw err;
-//             res.json(notes);
-//         });
-//     });
-// });
 
 
 app.post('/api/notes', (req, res) => {
@@ -84,19 +52,6 @@ app.get('/api/notes', (req,res) =>{
 });
 
 
-
-// app.delete('/api/notes/:id', (req, res) => {
-//     fs.readfile(path.join(__dirname, '/db/db.json'), 'utf-8', (err, data) => {
-//         if(err) throw err; 
-//         let notes = JSON.parse(data);
-//         let noteId = req.params.id;
-//         notes = notes.filter(note => note.id != noteId);
-//         fs.writeFile(path.join(__dirname, '/db/db.json'), JSON.stringify(notes), (err) => {
-//             if(err) throw err;
-//             res.json({success: true}); 
-//         });
-//     });
-// });
 
 
 app.delete('/api/notes/:id', (req, res) => {
